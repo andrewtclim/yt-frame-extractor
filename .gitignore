@@ -23,3 +23,6 @@ frontend/dist/
 # Editor
 .vscode/
 .idea/
+
+# Local Claude context (not for version control)
+CLAUDE.md
