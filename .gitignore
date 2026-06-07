@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+dist/
+build/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Temp frame/video files
+/tmp/
+*.mp4
+*.webm
+*.jpg
+*.jpeg
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/

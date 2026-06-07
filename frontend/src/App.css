@@ -1,0 +1,221 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #f4f4f5;
+  color: #18181b;
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+/* --- URL input row --- */
+.input-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.url-input {
+  flex: 1;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.95rem;
+  border: 1px solid #d4d4d8;
+  border-radius: 6px;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.url-input:focus { border-color: #2563eb; }
+.url-input:disabled { background: #f4f4f5; color: #a1a1aa; }
+
+/* --- Buttons --- */
+.btn-primary {
+  padding: 0.6rem 1.1rem;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.btn-primary:hover:not(:disabled) { background: #1d4ed8; }
+.btn-primary:disabled { background: #93c5fd; cursor: not-allowed; }
+
+.btn-ghost {
+  padding: 0.45rem 0.8rem;
+  background: transparent;
+  color: #3f3f46;
+  border: 1px solid #d4d4d8;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+.btn-ghost:hover { background: #e4e4e7; }
+
+/* --- Status bar --- */
+.status-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+.status-busy  { background: #eff6ff; color: #1d4ed8; }
+.status-ok    { background: #f0fdf4; color: #15803d; }
+.status-error { background: #fef2f2; color: #b91c1c; }
+
+/* Spinner */
+.spinner {
+  display: inline-block;
+  width: 14px; height: 14px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* --- Sensitivity bar --- */
+.sensitivity-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.85rem;
+  background: #fff;
+  border: 1px solid #e4e4e7;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+.sens-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #3f3f46;
+  white-space: nowrap;
+}
+.sens-hint {
+  font-size: 0.75rem;
+  color: #a1a1aa;
+  white-space: nowrap;
+}
+.sens-slider {
+  flex: 1;
+  min-width: 120px;
+  max-width: 260px;
+  accent-color: #2563eb;
+  cursor: pointer;
+}
+.sens-slider:disabled { opacity: 0.5; cursor: not-allowed; }
+.sens-value {
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: ui-monospace, monospace;
+  color: #2563eb;
+  min-width: 1.8rem;
+  text-align: right;
+}
+
+/* --- Toolbar --- */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.stamp-label {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: #52525b;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* --- Frame grid --- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
+}
+
+.frame-card {
+  position: relative;
+  border: 3px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,.08);
+  transition: border-color 0.12s, box-shadow 0.12s;
+}
+.frame-card:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,.14);
+}
+.frame-card.selected {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px #2563eb, 0 2px 8px rgba(37,99,235,.2);
+}
+
+.frame-card img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  background: #e4e4e7;
+}
+
+.ts-label {
+  display: block;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.75rem;
+  font-family: ui-monospace, monospace;
+  color: #71717a;
+  text-align: center;
+  background: #fafafa;
+}
+
+.check-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 22px; height: 22px;
+  background: #2563eb;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  z-index: 1;
+  pointer-events: none;
+}
